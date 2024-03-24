@@ -205,6 +205,7 @@ import Textarea from 'primevue/textarea';
 import { AddDisciplines } from "../models/AddDisciplines";
 import axios from 'axios';
 import { Filterisciplines } from "../models/FilterDisciplines";
+import {ROLES} from '../constants/constants'
 export default {
     components: {
         Qalendar,
@@ -214,7 +215,7 @@ export default {
 
     data() {
         return {
-            random: null,
+            roles:ROLES,
             visible: false,
             file: '',
             modalShow: false,

@@ -6,12 +6,12 @@
             </div>
         </div>
         <div>
-            <strong> <label>Име: {{ this.$store.getters.getName }} <span v-if="this.$store.getters.getRole == 'student'"> Фак.
+            <strong> <label>Име: {{ this.$store.getters.getName }} <span v-if="this.$store.getters.getRole == roles.STUDENT"> Фак.
                         номер: {{ this.$store.getters.FakultyNumber }}</span></label> </strong>
         </div>
         <div class="row mt-3">
 
-            <button @click="info()" v-if="this.$store.getters.getRole=='student'">
+            <button @click="info()" v-if="this.$store.getters.getRole==roles.STUDENT">
                 <label>Информация</label>
             </button>
 
@@ -28,11 +28,11 @@
             </button>
 
 
-            <button @click="editUser()" v-if="this.$store.getters.getRole=='Admin'"  class="mt-2">
+            <button @click="editUser()" v-if="this.$store.getters.getRole==roles.ADMIN"  class="mt-2">
                 <label>Редакция</label>
             </button>
 
-            <button @click="viewLogs()" v-if="this.$store.getters.getRole=='Admin'"  class="mt-2">
+            <button @click="viewLogs()" v-if="this.$store.getters.getRole==roles.ADMIN"  class="mt-2">
                 <label>Логове</label>
             </button>
 
@@ -43,17 +43,16 @@
             <button class="mt-2" @click="back()">
                 <label>Изход</label>
             </button>
-
-
         </div>
     </div>
 </template>
 <script lang="ts">
+import {ROLES} from '../constants/constants'
 export default {
     name: "Menu",
     data() {
         return {
-
+            roles:ROLES
         }
     },
     methods: {

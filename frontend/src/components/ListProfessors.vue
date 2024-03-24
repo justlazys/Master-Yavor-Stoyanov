@@ -91,7 +91,7 @@
                     <template #table-row="props">
                         <span v-if="props.column.field === 'function'">
                             <div>
-                                <router-link  v-if="this.$store.getters.getRole == 'teacher' || this.$store.getters.getRole == 'Admin' "  :to="'/view-professor_edit/' + props.row.id">
+                                <router-link  v-if="this.$store.getters.getRole == this.roles.PROFESSOR || this.$store.getters.getRole == this.roles.ADMIN "  :to="'/view-professor_edit/' + props.row.id">
                                     <font-awesome-icon size="xl" icon="fa-solid fa-pencil" />
                                 </router-link>
                                 <router-link style="margin-left:15px" :to="'/view-professor_view/' + props.row.id">
@@ -124,6 +124,7 @@ import Dialog from 'primevue/dialog';
 import Textarea from 'primevue/textarea';
 import { TextMessagesModel } from '../models/TextMessagesModel';
 import moment from 'moment';
+import {ROLES} from '../constants/constants'
 export default {
     name: 'ListPorfessors',
     components: {
@@ -132,6 +133,7 @@ export default {
     },
     data() {
         return {
+            roles:ROLES,
             columns: [
                 {
                     label: 'Титла',
